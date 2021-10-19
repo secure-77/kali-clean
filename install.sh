@@ -39,8 +39,8 @@ echo "Done! Grab some wallpaper and run pywal -i filename to set your color sche
 echo "After reboot: Select i3 on login, run lxappearance and select arc-dark"
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+cp .config/.zshrc ~/.zshrc
 git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-cp .config/.zshrc ~/.zshrc
 sudo systemctl enable xrdp
 sudo systemctl start xrdp
