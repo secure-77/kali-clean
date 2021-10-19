@@ -9,7 +9,7 @@ font pango:RobotoMono Nerd Font Regular 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec qterminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -124,8 +124,8 @@ bar {
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
         i3bar_command i3bar -t
         position top
-        height 26
-        font pango:RobotoMono Nerd Font Regular 7.5
+        height 35
+        font pango:RobotoMono Nerd Font Regular 10
         colors {
             statusline #EEEEEE
             background #1C1D2B88
@@ -135,9 +135,9 @@ bar {
 }
 
 # i3-gaps
-for_window [class="^.*"] border pixel 2
-gaps inner 2
-gaps outer 4
+for_window [class="^.*"] border pixel 2 
+gaps inner 10
+#gaps outer 5
 
 client.focused  #82c8ff #82c8ff #dddddd
 client.focused_inactive #333333 #333333 #888888

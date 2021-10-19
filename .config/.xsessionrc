@@ -1,0 +1,3 @@
+#use i3 in rdp
+exec i3
+
