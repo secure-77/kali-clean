@@ -21,17 +21,17 @@ sudo apt-get install -y arandr arc-theme feh i3blocks i3status i3 i3-wm lxappear
 
 # Install Google Chrome and gowitness (Screenshot Tool)
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb
+sudo apt install ./google-chrome-stable_current_amd64.deb -y
 rm google-chrome-stable_current_amd64.deb
 go install github.com/sensepost/gowitness@latest
 
 
 
 git clone https://www.github.com/Airblader/i3 i3-gaps
-cd i3-gaps && mkdir -p build && cd build && meson ..
-ninja
-sudo ninja install
-cd ../..
+# cd i3-gaps && mkdir -p build && cd build && meson ..
+# ninja
+# sudo ninja install
+# cd ../..
 
 pip3 install pywal
 wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
@@ -40,7 +40,8 @@ pip2.7 install --upgrade setuptools
 
 # make sure that pip 3 is the main pip
 sudo mv /usr/local/bin/pip /usr/local/bin/pip2_renamed
-sudo cp /usr/bin/pip /usr/local/bin/pip
+sudo cp /usr/bin/pip3.11 /usr/local/bin/pip
+sudo cp /usr/bin/pip3.11 /usr/bin/pip
 
 # install pyftp
 sudo pip install pyftpdlib
@@ -51,6 +52,7 @@ mkdir -p ~/.config/compton
 mkdir -p ~/.config/rofi
 mkdir -p ~/.config/qterminal.org
 mkdir -p ~/.wallpaper
+cd kali-clean
 cp .config/i3/config ~/.config/i3/config
 cp .config/i3/i3blocks.conf ~/.config/i3/i3blocks.conf
 cp .config/compton/compton.conf ~/.config/compton/compton.conf
@@ -68,7 +70,7 @@ echo "After reboot: Select i3 on login, run lxappearance and select arc-dark"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 cp .config/.zshrc ~/.zshrc
 
-
+cd ~
 # add go to our path var
 echo "alias ll='ls -lah'" >> .zshrc
 echo "# Golang paths in bashrc" >> .zshrc
