@@ -59,7 +59,7 @@ cp .config/compton/compton.conf ~/.config/compton/compton.conf
 cp .config/rofi/config ~/.config/rofi/config
 cp .fehbg ~/.fehbg
 cp .config/i3/clipboard_fix.sh ~/.config/i3/clipboard_fix.sh
-
+chmod +x ~/.config/i3/clipboard_fix.sh
 cp .config/.xsessionrc ~/.xsessionrc
 cp .config/qterminal.org/qterminal.ini ~/.config/qterminal.org/qterminal.ini 
 
