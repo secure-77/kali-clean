@@ -1,6 +1,2 @@
 #use i3 in rdp
 exec i3
-
-# fix numlock
-sleep 2
-exec numlockx on
