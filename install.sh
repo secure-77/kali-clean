@@ -37,6 +37,7 @@ pip3 install pywal
 wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
 sudo python2.7 get-pip.py
 pip2.7 install --upgrade setuptools
+rm get-pip.py
 
 # make sure that pip 3 is the main pip
 sudo mv /usr/local/bin/pip /usr/local/bin/pip2_renamed
