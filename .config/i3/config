@@ -157,7 +157,7 @@ exec_always --no-startup-id sh ~/.fehbg
 exec_always --no-startup-id picom -b --config ~/.config/picom/picom.conf
 
 # VM Clipboard Fix
-#exec_always --no-startup-id ~/.config/i3/clipboard_fix.sh
+exec_always --no-startup-id ~/.config/i3/clipboard_fix.sh
 
 # numlock fix
 exec_always --no-startup-id numlockx on
