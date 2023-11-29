@@ -58,10 +58,7 @@ echo "# Golang paths in bashrc" >> .zshrc
 echo "export GOROOT=/usr/local/go" >> .zshrc
 echo "export GOPATH=$HOME/go" >> .zshrc
 echo "export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH" >> .zshrc
-echo "sleep 2" >> /etc/xrdp/startup.sh
-
-source .zshrc 
-
+zsh -c "source .zshrc"
 
 # install vs code
 sudo apt-get install wget gpg
@@ -74,6 +71,7 @@ sudo apt update
 sudo apt install code
 
 # only if we need rdp activ
+sudo zsh -c "echo 'sleep 2' >> /etc/xrdp/startup.sh"
 sudo systemctl enable xrdp
 sudo systemctl start xrdp
 
