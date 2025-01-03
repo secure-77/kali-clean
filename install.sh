@@ -14,19 +14,15 @@ rm google-chrome-stable_current_amd64.deb
 go install github.com/sensepost/gowitness@latest
 
 
-pip3 install pywal
+pipx install pywal
 wget https://bootstrap.pypa.io/pip/2.7/get-pip.py
 sudo python2.7 get-pip.py
 pip2.7 install --upgrade setuptools
 rm get-pip.py
 
-# make sure that pip 3 is the main pip
-sudo mv /usr/local/bin/pip /usr/local/bin/pip2_renamed
-sudo cp /usr/bin/pip3.11 /usr/local/bin/pip
-sudo cp /usr/bin/pip3.11 /usr/bin/pip
 
 # install pyftp
-sudo pip install pyftpdlib
+sudo pipx install pyftpdlib
 
 
 mkdir -p ~/.config/i3
@@ -49,32 +45,4 @@ cp cyber.jpg ~/.wallpaper
 sudo cp .config/reconnectwm.sh /etc/xrdp/reconnectwm.sh
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-cp .config/.zshrc ~/.zshrc
 
-cd ~
-# add go to our path var
-echo "alias ll='ls -lah'" >> .zshrc
-echo "# Golang paths in bashrc" >> .zshrc
-echo "export GOROOT=/usr/local/go" >> .zshrc
-echo "export GOPATH=$HOME/go" >> .zshrc
-echo "export PATH=$GOPATH/bin:$GOROOT/bin:$HOME/.local/bin:$PATH" >> .zshrc
-zsh -c "source .zshrc"
-
-# install vs code
-sudo apt-get install wget gpg
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-rm -f packages.microsoft.gpg
-sudo apt install apt-transport-https
-sudo apt update
-sudo apt install code
-
-# only if we need rdp activ
-sudo zsh -c "echo 'sleep 2' >> /etc/xrdp/startup.sh"
-sudo systemctl enable xrdp
-sudo systemctl start xrdp
-
-echo "Done!"
-echo "After reboot: Select i3 on login, run lxappearance and select arc-dark"
-echo "edit /etc/xrdp/xrdp.ini for 3389 port and listining ip"
